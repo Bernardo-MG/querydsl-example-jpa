@@ -33,7 +33,6 @@ import org.springframework.context.annotation.Configuration;
 import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.sql.H2Templates;
-import com.querydsl.sql.SQLQueryFactory;
 import com.querydsl.sql.SQLTemplates;
 import com.querydsl.sql.spring.SpringConnectionProvider;
 
@@ -50,6 +49,11 @@ public class QueryDslConfig {
         super();
     }
 
+    @Bean("jpqlQueryFactory")
+    public JPQLQueryFactory getJpqlQueryFactory(final EntityManager entityManager) {
+        return new JPAQueryFactory(entityManager);
+    }
+
     @Bean("querydslConfiguration")
     public com.querydsl.sql.Configuration getQuerydslConfiguration(final SQLTemplates sqlTemplates) {
         return new com.querydsl.sql.Configuration(sqlTemplates);
@@ -64,11 +68,6 @@ public class QueryDslConfig {
     @Bean("springConnectionProvider")
     public SpringConnectionProvider getSpringConnectionProvider(final DataSource dataSource) {
         return new SpringConnectionProvider(dataSource);
-    }
-
-    @Bean("jpqlQueryFactory")
-    public JPQLQueryFactory getJpqlQueryFactory(final EntityManager entityManager) {
-        return new JPAQueryFactory(entityManager);
     }
 
 }
