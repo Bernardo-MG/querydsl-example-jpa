@@ -1,0 +1,94 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  unit_test:
+    name: Unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: 'adopt'
+        cache: 'maven'
+    - name: Run unit tests
+      run: mvn test
+
+  integration_test_h2:
+    name: Integration tests with h2
+    needs: unit_test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: 'adopt'
+        cache: 'maven'
+    - name: Run up to integration tests
+      run: mvn verify -Ph2
+
+  integration_test_mysql:
+    name: Integration tests with Mysql
+    needs: unit_test
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_DATABASE: testdb
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: 'adopt'
+        cache: 'maven'
+    - name: Run up to integration tests
+      run: mvn verify -Pmysql
+
+  integration_test_postgres:
+    name: Integration tests with postgres
+    needs: unit_test
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15.0-alpine
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: 'adopt'
+        cache: 'maven'
+    - name: Run up to integration tests
+      run: mvn verify -Ppostgres
