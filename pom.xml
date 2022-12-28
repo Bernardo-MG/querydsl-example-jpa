@@ -18,13 +18,13 @@
    <!-- ********************************************** -->
 
    <groupId>com.bernardomg.example</groupId>
-   <artifactId>querydsl-example-sql</artifactId>
+   <artifactId>querydsl-example-jpa</artifactId>
    <version>1.0.0-SNAPSHOT</version>
    <packaging>jar</packaging>
 
    <name>Querydsl Example for SQL</name>
    <description>An example showing how to use Querydsl for SQL</description>
-   <url>https://github.com/bernardo-mg/querydsl-example-sql</url>
+   <url>https://github.com/bernardo-mg/querydsl-example-jpa</url>
    <inceptionYear>2022</inceptionYear>
 
    <licenses>
@@ -40,20 +40,20 @@
    <!-- ********************************************** -->
 
    <scm>
-      <connection>scm:git:https://github.com/bernardo-mg/querydsl-example-sql.git</connection>
-      <developerConnection>scm:git:https://github.com/bernardo-mg/querydsl-example-sql.git</developerConnection>
+      <connection>scm:git:https://github.com/bernardo-mg/querydsl-example-jpa.git</connection>
+      <developerConnection>scm:git:https://github.com/bernardo-mg/querydsl-example-jpa.git</developerConnection>
       <tag>head</tag>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa</url>
    </scm>
 
    <issueManagement>
       <system>GitHub</system>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql/issues</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa/issues</url>
    </issueManagement>
 
    <ciManagement>
       <system>Github</system>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql/actions</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa/actions</url>
       <notifiers />
    </ciManagement>
 

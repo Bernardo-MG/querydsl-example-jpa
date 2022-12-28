@@ -13,7 +13,7 @@ Three databases are used to test the queries:
 These, except for h2, should be started before running the tests. Which can be done with Docker:
 
 ```
-docker-compose -f docker/docker-compose.yml --project-name querydsl-example-sql up
+docker-compose -f docker/docker-compose.yml --project-name querydsl-example-jpa up
 ```
 
 ## Running the queries
