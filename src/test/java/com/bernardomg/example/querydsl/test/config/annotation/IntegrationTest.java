@@ -34,7 +34,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bernardomg.example.querydsl.test.Application;
+import com.bernardomg.example.querydsl.Application;
 
 @SpringJUnitConfig
 @SpringBootTest(classes = Application.class)

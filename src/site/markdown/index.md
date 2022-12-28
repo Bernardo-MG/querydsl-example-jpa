@@ -1,3 +1,3 @@
-# Querydsl Example
+# Querydsl Example with SQL
 
-An example showing how to set up Querydsl.
+Using the Querydsl DSL to handle SQL queries. These queries are handled through the tests.

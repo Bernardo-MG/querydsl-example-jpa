@@ -18,13 +18,13 @@
    <!-- ********************************************** -->
 
    <groupId>com.bernardomg.example</groupId>
-   <artifactId>querydsl-example-sql</artifactId>
-   <version>1.2.0-SNAPSHOT</version>
+   <artifactId>querydsl-example-jpa</artifactId>
+   <version>1.0.0</version>
    <packaging>jar</packaging>
 
    <name>Querydsl Example for SQL</name>
    <description>An example showing how to use Querydsl for SQL</description>
-   <url>https://github.com/bernardo-mg/querydsl-example-sql</url>
+   <url>https://github.com/bernardo-mg/querydsl-example-jpa</url>
    <inceptionYear>2022</inceptionYear>
 
    <licenses>
@@ -40,20 +40,20 @@
    <!-- ********************************************** -->
 
    <scm>
-      <connection>scm:git:https://github.com/bernardo-mg/querydsl-example-sql.git</connection>
-      <developerConnection>scm:git:https://github.com/bernardo-mg/querydsl-example-sql.git</developerConnection>
+      <connection>scm:git:https://github.com/bernardo-mg/querydsl-example-jpa.git</connection>
+      <developerConnection>scm:git:https://github.com/bernardo-mg/querydsl-example-jpa.git</developerConnection>
       <tag>head</tag>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa</url>
    </scm>
 
    <issueManagement>
       <system>GitHub</system>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql/issues</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa/issues</url>
    </issueManagement>
 
    <ciManagement>
       <system>Github</system>
-      <url>https://www.github.com/bernardo-mg/querydsl-example-sql/actions</url>
+      <url>https://www.github.com/bernardo-mg/querydsl-example-jpa/actions</url>
       <notifiers />
    </ciManagement>
 
@@ -235,8 +235,9 @@
       <mysql.version>8.0.21</mysql.version>
       <postgresql.version>42.2.24</postgresql.version>
       <querydsl.version>5.0.0</querydsl.version>
-      <spring.version>5.3.23</spring.version>
       <spring.boot.version>2.7.4</spring.boot.version>
+      <spring.data.version>2021.2.5</spring.data.version>
+      <spring.version>5.3.23</spring.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -276,6 +277,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-dependencies</artifactId>
             <version>${spring.boot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <!-- Spring Data BOM -->
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-bom</artifactId>
+            <version>${spring.data.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
@@ -320,12 +329,6 @@
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
-      <dependency>
-         <!-- Hikari CP -->
-         <groupId>com.zaxxer</groupId>
-         <artifactId>HikariCP</artifactId>
-         <scope>test</scope>
-      </dependency>
       <dependency>
          <!-- Liquibase -->
          <groupId>org.liquibase</groupId>
@@ -382,6 +385,12 @@
          <scope>test</scope>
       </dependency>
       <dependency>
+         <!-- Spring Data JPA -->
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-jpa</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
          <!-- Spring Test -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
@@ -412,18 +421,33 @@
          <scope>test</scope>
       </dependency>
       <!-- ********************************************** -->
+      <!-- **************** HIBERNATE ******************* -->
+      <!-- ********************************************** -->
+      <dependency>
+         <!-- Hibernate Core -->
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-core</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Hibernate Ehcache -->
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-ehcache</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Hikari CP -->
+         <groupId>com.zaxxer</groupId>
+         <artifactId>HikariCP</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <!-- ********************************************** -->
       <!-- ****************** QUERYDSL ****************** -->
       <!-- ********************************************** -->
       <dependency>
          <!-- Querydsl Spring -->
          <groupId>com.querydsl</groupId>
          <artifactId>querydsl-sql-spring</artifactId>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- Querydsl JPA -->
-         <groupId>com.querydsl</groupId>
-         <artifactId>querydsl-jpa</artifactId>
          <scope>test</scope>
       </dependency>
       <!-- ********************************************** -->
