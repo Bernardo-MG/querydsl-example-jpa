@@ -11,8 +11,8 @@
 
    <custom>
       <skinConfig>
-         <keywords>Maven, Java, library</keywords>
-         <descriptionUrl>Check the documentation for JPA Example</descriptionUrl>
+         <keywords>Querydsl</keywords>
+         <descriptionUrl>Check the documentation for Querydsl Example with JPA</descriptionUrl>
          <twitterSite>@bmg</twitterSite>
          <topNav>
             <menu>Info and reports</menu>
