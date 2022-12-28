@@ -19,7 +19,7 @@
 
    <groupId>com.bernardomg.example</groupId>
    <artifactId>querydsl-example-jpa</artifactId>
-   <version>1.0.0-SNAPSHOT</version>
+   <version>1.0.0</version>
    <packaging>jar</packaging>
 
    <name>Querydsl Example for SQL</name>
