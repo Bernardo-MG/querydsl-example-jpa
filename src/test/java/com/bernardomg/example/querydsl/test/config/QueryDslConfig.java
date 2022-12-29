@@ -25,16 +25,12 @@
 package com.bernardomg.example.querydsl.test.config;
 
 import javax.persistence.EntityManager;
-import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.querydsl.sql.H2Templates;
-import com.querydsl.sql.SQLTemplates;
-import com.querydsl.sql.spring.SpringConnectionProvider;
 
 /**
  * QueryDSL configuration.
@@ -52,22 +48,6 @@ public class QueryDslConfig {
     @Bean("jpqlQueryFactory")
     public JPQLQueryFactory getJpqlQueryFactory(final EntityManager entityManager) {
         return new JPAQueryFactory(entityManager);
-    }
-
-    @Bean("querydslConfiguration")
-    public com.querydsl.sql.Configuration getQuerydslConfiguration(final SQLTemplates sqlTemplates) {
-        return new com.querydsl.sql.Configuration(sqlTemplates);
-    }
-
-    @Bean("querydslDbTemplate")
-    public SQLTemplates getQuerydslDbTemplate() {
-        return H2Templates.builder()
-            .build();
-    }
-
-    @Bean("springConnectionProvider")
-    public SpringConnectionProvider getSpringConnectionProvider(final DataSource dataSource) {
-        return new SpringConnectionProvider(dataSource);
     }
 
 }
