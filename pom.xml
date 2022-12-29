@@ -217,7 +217,6 @@
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
       <plugin.processor.version>4.5</plugin.processor.version>
-      <plugin.querydsl.version>5.0.0</plugin.querydsl.version>
       <!-- ============================================== -->
       <!-- ============ PLUGIN CONFIGURATION ============ -->
       <!-- ============================================== -->
@@ -486,16 +485,6 @@
             <filtering>true</filtering>
          </testResource>
       </testResources>
-      <pluginManagement>
-         <plugins>
-            <plugin>
-               <!-- Querydsl -->
-               <groupId>com.querydsl</groupId>
-               <artifactId>querydsl-maven-plugin</artifactId>
-               <version>${plugin.querydsl.version}</version>
-            </plugin>
-         </plugins>
-      </pluginManagement>
       <plugins>
          <plugin>
             <!-- Changes -->
