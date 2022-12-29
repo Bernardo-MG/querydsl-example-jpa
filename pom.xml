@@ -94,10 +94,6 @@
          <!-- Site deployment profile -->
          <!-- Sets the site repository to point to the releases repo -->
          <id>deployment-site</id>
-         <activation>
-            <!-- Active by default so the repository appears in the reports -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
          <distributionManagement>
             <site>
                <id>site</id>
@@ -126,27 +122,6 @@
       <!-- ============================================== -->
       <!-- ============= DATABASE PROFILES ============== -->
       <!-- ============================================== -->
-      <profile>
-         <!-- Default database profile -->
-         <!-- Required when the tests are disabled -->
-         <id>default</id>
-         <properties>
-            <!-- Access data -->
-            <database.url>jdbc:h2:mem:testdb</database.url>
-            <database.username>sa</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <spring.profile.database>h2</spring.profile.database>
-         </properties>
-         <dependencies>
-            <dependency>
-               <!-- H2 database -->
-               <groupId>com.h2database</groupId>
-               <artifactId>h2</artifactId>
-               <scope>test</scope>
-            </dependency>
-         </dependencies>
-      </profile>
       <profile>
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
